@@ -36,6 +36,22 @@
     margin-inline-end: 8px;
 }
 
+.logo-cursor {
+    display: inline-block;
+    width: .6rem;
+    height: 1rem;
+    background: #98c379;
+    margin-left: 0px;
+    border-radius: 1px;
+    animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+    50% {
+        opacity: 0;
+    }
+}
+
 #theme-toggle svg {
     height: 18px;
 }
