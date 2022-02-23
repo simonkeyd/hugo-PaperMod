@@ -1,13 +1,17 @@
-{{- with $.Site.Params.homeInfoParams }}
 <article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>{{ .Title | markdownify }}</h1>
-    </header>
     <section class="entry-content">
-        <p>{{ .Content | markdownify }}</p>
+        <div id="termynal" data-termynal data-ty-typeDelay="100" data-ty-lineDelay="200">
+            <span data-ty="input" data-ty-prompt="{{ .Site.Params.homeInfoParams.ps1 }}">whoami</span>
+            <span data-ty>{{ .Site.Params.homeInfoParams.username }}</span>
+            <span data-ty="input" data-ty-prompt="{{ .Site.Params.homeInfoParams.ps1 }}">cat description</span>
+            {{ range $description_line := .Site.Params.homeInfoParams.description }}
+            <span data-ty data-ty-delay="0">{{ $description_line }}</span>
+            {{ end }}
+        </div>
+    {{ $built := resources.Get "js/termynal.js" | js.Build "termynal.js" }}
+    <script src="{{ $built.RelPermalink }}" data-termynal-container="#termynal"></script>
     </section>
     <footer class="entry-footer">
         {{ partial "social_icons.html" $.Site.Params.socialIcons }}
     </footer>
 </article>
-{{- end -}}

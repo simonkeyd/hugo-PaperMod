@@ -1,0 +1,104 @@
+/**
+ * termynal.js
+ *
+ * @author Ines Montani <ines@ines.io>
+ * @version 0.0.1
+ * @license MIT
+ */
+
+:root {
+    /* one dark theme */
+    --color-red: #e06c75;
+    --color-green: #98c379;
+    --color-yellow: #e5c07b;
+    --color-text: #abb2bf;
+    --color-text-subtle: var(--color-green);
+}
+
+[data-termynal] {
+    width: 100%;
+    max-width: 100%;
+    background: var(--entry);
+    color: var(--color-text);
+    font-size: 18px;
+    font-family: 'Fira Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace;
+    border-radius: 4px;
+    padding: 75px 45px 10px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+[data-termynal]:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /* A little hack to display the window buttons in one pseudo element. */
+    background: var(--color-red);
+    -webkit-box-shadow: 25px 0 0 var(--color-yellow), 50px 0 0 var(--color-green);
+            box-shadow: 25px 0 0 var(--color-yellow), 50px 0 0 var(--color-green);
+}
+
+[data-termynal]:after {
+    content: 'zsh';
+    position: absolute;
+    color: var(--color-text);
+    top: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+[data-ty] {
+    display: block;
+    line-height: 1.3;
+}
+
+[data-ty]:before {
+    /* Set up defaults and ensure empty lines are displayed. */
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[data-ty="input"]:before,
+[data-ty-prompt]:before {
+    margin-right: 0.75em;
+    color: var(--color-text-subtle);
+}
+
+[data-ty="input"]:before {
+    content: '$';
+}
+
+[data-ty][data-ty-prompt]:before {
+    content: attr(data-ty-prompt);
+}
+
+[data-ty-cursor]:after {
+    content: attr(data-ty-cursor);
+    font-family: monospace;
+    margin-left: 0.1em;
+    -webkit-animation: blink 1s infinite;
+            animation: blink 1s infinite;
+}
+
+
+/* Cursor animation */
+
+@-webkit-keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
