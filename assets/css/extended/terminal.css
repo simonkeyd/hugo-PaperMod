@@ -1,0 +1,38 @@
+.terminal {
+    border-radius: 5px 5px 5px 5px;
+    position: relative;
+}
+.terminal .top {
+    background: var(--code-bg);
+    color: var(--secondary);
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+}
+.terminal .btns {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+}
+.terminal .circle {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 15px;
+    margin-left: 2px;
+    border-width: 1px;
+    border-style: solid;
+}
+.title{
+    text-align: center;
+}
+.red { background: var(--color-red); border-color: var(--color-red); }
+.green { background: var(--color-green); border-color: var(--color-green); }
+.yellow{ background: var(--color-yellow); border-color: var(--color-yellow); }
+.clear{clear: both;}
+.terminal .terminalbody {
+    background: var(--terminal-bg);
+    overflow: auto;
+}
+
+.shadow { box-shadow: 0px 0px 10px rgba(0,0,0,.4)}
